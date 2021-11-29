@@ -1,9 +1,13 @@
 {
   "name": "angular-demo",
   "version": "0.0.0",
+  "config": {
+    "environment": "local"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:proxy": "ng serve --proxy-config ./proxy/$npm_package_config_environment.conf.js --configuration=$npm_package_config_environment --poll 100",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
