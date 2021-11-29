@@ -82,6 +82,9 @@
             "production": {
               "browserTarget": "angular-demo:build:production"
             },
+            "local": {
+              "browserTarget": "angular-demo:build:local"
+            },
             "development": {
               "browserTarget": "angular-demo:build:development"
             }
