@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserHttpService } from "../../service/http/user.http.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {LocalStorageTokenStoreService} from "../../auth/local.storage.token.store.service";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
 
   userLoginForm: FormGroup;
 
-  constructor(private readonly _userHttpService: UserHttpService,
+  constructor(private readonly _tokenStorageService: LocalStorageTokenStoreService,
+              private readonly _userHttpService: UserHttpService,
               private readonly _formBuilder: FormBuilder) {
     // Init the login form
     this.userLoginForm = this._formBuilder.group({
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this._userHttpService.getOauthToken(this.userLoginForm?.get('userName')?.value, this.userLoginForm?.get('password')?.value).subscribe(response => {
-      console.log(response);
+      this._tokenStorageService.setToken(response.access_token);
     })
   }
 

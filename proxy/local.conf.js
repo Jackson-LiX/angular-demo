@@ -15,7 +15,7 @@ const preventBrowserCalls = (req) => {
  */
 const PROXY_CONFIG = [{
     context: [
-        '/users',
+        '/user',
         '/oauth'
     ],
     target: 'http://localhost:8080',

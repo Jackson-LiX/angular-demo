@@ -8,7 +8,6 @@ import { InputTextModule } from "primeng/inputtext";
 import { PasswordModule } from "primeng/password";
 import { ButtonModule } from "primeng/button";
 
-
 @NgModule({
   declarations: [
     LoginComponent
